@@ -7,4 +7,5 @@ const MainContainer = () => {
     <VideoContainer/>
   </div>;
 };
+
 export default MainContainer;
