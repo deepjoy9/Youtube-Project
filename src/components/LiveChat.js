@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { addMessage } from "../utils/chatSlice";
+import { generateRandomName, makeRandomMessage } from "../utils/helper";
 import ChatMessage from "./ChatMessage";
 
 const LiveChat = () => {
@@ -23,7 +25,7 @@ const LiveChat = () => {
 
   return (
     <>
-    <div className="w-full h-[600px] ml-2 p-2 border border-black bg-slate-100 rounded-lg overflow-y-scroll flex flex-col-reverse">
+    <div className=" w-full h-[600px] ml-2 p-2 border border-black bg-slate-100 rounded-lg overflow-y-scroll flex flex-col-reverse">
         <div>
             {
                 chatMessages.map((c,i)=>(

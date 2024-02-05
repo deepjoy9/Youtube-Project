@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
-import { YOUTUBE_VIDEOS_API } from "../utils/constants";
+import { YOUTUBE_SEARCH_API } from "../utils/constants";
+import { cacheResults } from "../utils/searchSlice";
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -26,7 +27,8 @@ const Head = () => {
   }, [searchQuery]);
 
   const getSearchSuggestions = async () => {
-    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+    //const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+    const data = await fetch(`https://yt-server-zum8.onrender.com/api/data/${searchQuery}`);
     const json = await data.json();
     setSuggestions(json[1]);
 

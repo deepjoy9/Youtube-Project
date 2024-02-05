@@ -1,23 +1,37 @@
-import Button from "./Button";
-const ButtonList = () => {
+const Button = ({ name }) => {
   return (
-  <div className="flex">
-    <Button name="All"/>
-    <Button name="Gaming"/>
-    <Button name="Songs"/>
-    <Button name="Live"/>
-    <Button name="Soccer"/>
-    <Button name="Cricket"/>
-    <Button name="Cooking"/>
-    <Button name="Cricket"/>
-    <Button name="Gaming"/>
-    <Button name="Songs"/>
-    <Button name="Live"/>
-    <Button name="Soccer"/>
-    <Button name="Cricket"/>
-    <Button name="Cooking"/>
-    
-  </div>
+    <div>
+      <button className="bg-gray-100 m-1 p-2 px-3 rounded-lg">{name}</button>
+    </div>
+  );
+};
+
+const ButtonList = () => {
+  const btnList = [
+    "HTML",
+    "Gaming",
+    "Java",
+    "Live",
+    "Music",
+    "Mixes",
+    "Trailer",
+    "Game shows",
+    "Superheroes",
+    "Action-adventure games",
+    "Comedy",
+    "Recently Uploaded",
+    "Watched",
+    "New to you",
+  ];
+  return (
+    <div className=" flex  ">
+      <button className="bg-black m-1 p-2 px-3 rounded-lg text-white">
+        All{" "}
+      </button>
+      {btnList.map((item, index) => (
+        <Button key={index} name={item} />
+      ))}
+    </div>
   );
 };
 
