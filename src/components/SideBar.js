@@ -11,12 +11,18 @@ const SideBar = () => {
     <div className="p-5 shadow-lg w-48">
       <ul>
         <li>
-          <Link className="font-bold pt-5" to="/">
+          <Link className="font-bold py-1 flex items-center rounded-lg hover:bg-gray-100" to="/">
             Home
           </Link>
         </li>
-        <li>Shorts</li>
-        <li>Subscriptions</li>
+        <li>
+          <Link className="py-1 flex items-center rounded-lg hover:bg-gray-100" to="/shorts">
+          Shorts
+          </Link>
+        </li>
+        <li className="py-1 flex items-center rounded-lg hover:bg-gray-100">
+          Subscriptions
+        </li>
       </ul>
       <h1 className="font-bold pt-5">You &gt;</h1>
       <ul>
