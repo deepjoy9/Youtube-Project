@@ -1,6 +1,7 @@
 import React from "react";
 //import { FaUserCircle } from 'react-icons/fa';
 import { Link } from "react-router-dom";
+import { USER_ICON } from "../utils/constants";
 
 const SearchCard = ({ data }) => {
   const { thumbnails, title, channelTitle, description } = data?.snippet || {};
@@ -17,11 +18,7 @@ const SearchCard = ({ data }) => {
           <div className="ml-4 ">
             <h1 className=" font-medium text-lg ">{title}</h1>
             <div className="flex text-sm items-center mt-5">
-              <img
-                className="w-8 h-8"
-                alt="user"
-                src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
-              />
+              <img className="w-8 h-8" alt="user" src={USER_ICON} />
               <span className="ml-2">{channelTitle}</span>
             </div>
             <div className="line-clamp-1 text-sm text-gray-700 my-2">
