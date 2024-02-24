@@ -9,3 +9,7 @@ Features:
 Hamburger menu toggle sidebar
 Well optimised search that uses live API, debouncing and caching as well
 N-level nested comments
+
+
+Upcoming features:
+Infinite scrolling
