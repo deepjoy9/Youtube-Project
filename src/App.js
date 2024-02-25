@@ -5,8 +5,10 @@ import Head from "./components/Head";
 import store from "./utils/store";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import MainContainer from "./components/MainContainer";
-import WatchPage from "./components/WatchPage";
-import Shorts from "./components/Shorts";
+import { Suspense, lazy } from "react";
+
+const WatchPage = lazy(() => import("./components/WatchPage"));
+const Shorts = lazy(() => import("./components/Shorts"));
 
 const appRouter = createBrowserRouter([
   {
@@ -19,11 +21,19 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "watch",
-        element: <WatchPage />,
+        element: (
+          <Suspense>
+            <WatchPage />
+          </Suspense>
+        ),
       },
       {
         path: "shorts",
-        element: <Shorts />,
+        element: (
+          <Suspense>
+            <Shorts />
+          </Suspense>
+        ),
       },
     ],
   },
