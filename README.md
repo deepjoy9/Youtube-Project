@@ -13,3 +13,4 @@ N-level nested comments
 
 Upcoming features:
 Infinite scrolling
+Search Page
