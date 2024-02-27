@@ -18,14 +18,7 @@ export const VIDEO_API =
 
 export const LIVE_CHAT_COUNT = 25;
 
-// export const YOUTUBE_SEARCH_API2 =
-//   "http://suggestqueries.google.com/complete/search?client=chrome&ds=yt&q=";
-
-// export const YOUTUBE_SEARCH_API = "http://yt-server-zum8.onrender.com/api/data";
-
 export const VIDEO_SEARCH_API =
   "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&key=" +
   GOOGLE_API_KEY +
   "&q=";
-
-export const VIDEO_SEARCH_API2 = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&key=${GOOGLE_API_KEY}&q=`;
