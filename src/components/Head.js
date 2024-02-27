@@ -1,12 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
-import {
-  TOGGLE_ICON,
-  USER_ICON,
-  YOUTUBE_LOGO,
-  YOUTUBE_SEARCH_API,
-} from "../utils/constants";
+import { TOGGLE_ICON, USER_ICON, YOUTUBE_LOGO } from "../utils/constants";
 import { cacheResults } from "../utils/searchSlice";
 
 const Head = () => {
@@ -32,19 +27,28 @@ const Head = () => {
   }, [searchQuery]);
 
   const getSearchSuggestions = async () => {
-    //const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
-    const data = await fetch(
-      `https://yt-server-zum8.onrender.com/api/data/${searchQuery}`
-    );
-    const json = await data.json();
-    setSuggestions(json[1]);
+    if (searchQuery.trim() === "") {
+      return;
+    }
+    try {
+      const data = await fetch(
+        `https://yt-server-zum8.onrender.com/api/data/${searchQuery}`
+      );
+      if (!data.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const json = await data.json();
+      setSuggestions(json[1]);
 
-    //update cache
-    dispatch(
-      cacheResults({
-        [searchQuery]: json[1],
-      })
-    );
+      //update cache
+      dispatch(
+        cacheResults({
+          [searchQuery]: json[1],
+        })
+      );
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
 
   const toggleMenuHandler = () => {
