@@ -1,7 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
-import { TOGGLE_ICON, USER_ICON, YOUTUBE_LOGO } from "../utils/constants";
+import {
+  SEARCH_SUGGESTIONS_API,
+  TOGGLE_ICON,
+  USER_ICON,
+  YOUTUBE_LOGO,
+} from "../utils/constants";
 import { cacheResults } from "../utils/searchSlice";
 
 const Head = () => {
@@ -31,9 +36,7 @@ const Head = () => {
       return;
     }
     try {
-      const data = await fetch(
-        `https://yt-server-zum8.onrender.com/api/data/${searchQuery}`
-      );
+      const data = await fetch(SEARCH_SUGGESTIONS_API + searchQuery);
       if (!data.ok) {
         throw new Error("Failed to fetch data");
       }
