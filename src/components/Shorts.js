@@ -19,7 +19,7 @@ const Shorts = () => {
   return (
     <div className="mx-10">
       {searchResults.map((result) => (
-        <SearchCard data={result} />
+        <SearchCard key={result.id.videoId} data={result} />
       ))}
     </div>
   );
