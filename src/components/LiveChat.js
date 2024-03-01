@@ -15,13 +15,23 @@ const LiveChat = () => {
       dispatch(
         addMessage({
           name: generateRandomName(),
-          message: makeRandomMessage(20),
+          message: makeRandomMessage(),
         })
       );
-    }, 2000);
+    }, 500);
 
     return () => clearInterval(i);
   }, []);
+
+  const sendMessage = () => {
+    dispatch(
+      addMessage({
+        name: "Deepjoy Sarkar",
+        message: liveMessage,
+      })
+    );
+    setLiveMessage("");
+  };
 
   return (
     <div className="h-[550px] border border-gray-200 flex flex-col rounded-lg">
@@ -39,13 +49,7 @@ const LiveChat = () => {
         className="flex justify-between items-center"
         onSubmit={(e) => {
           e.preventDefault();
-          dispatch(
-            addMessage({
-              name: "Deepjoy Sarkar",
-              message: liveMessage,
-            })
-          );
-          setLiveMessage("");
+          sendMessage();
         }}
       >
         <input
