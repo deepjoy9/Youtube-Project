@@ -1,9 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
-import { SUBSCRIBER_COUNT_API, VIDEO_API } from "../utils/constants";
+import { VIDEO_API } from "../utils/constants";
 import { useState } from "react";
-import GOOGLE_API_KEY from "../utils/constants.js";
-//import { FaUserCircle } from "react-icons/fa";
 
 const WatchPageDetails = ({ videoId }) => {
   const [videoDetails, setVideoDetails] = useState(null);
