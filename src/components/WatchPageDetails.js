@@ -11,7 +11,7 @@ const WatchPageDetails = ({ videoId }) => {
     fetchData();
   }, []);
 
-  const { title, channelTitle, description } = videoDetails?.snippet || {};
+  const { title, channelTitle } = videoDetails?.snippet || {};
   const fetchData = async () => {
     const data = await fetch(VIDEO_API + "&id=" + videoId);
     const json = await data.json();
@@ -33,7 +33,6 @@ const WatchPageDetails = ({ videoId }) => {
           Subscribe
         </button>
       </div>
-      <div className="flex flex-col w-1/2 m-4">{description}</div>
     </div>
   );
 };

@@ -5,6 +5,17 @@ const commentsData = [
   {
     name: "Deepjoy  Sarkar",
     text: "Hello I am watching the video",
+    replies: [
+      {
+        name: "Youtube User",
+        text: "Thanks for watching the video",
+        replies: [],
+      },
+    ],
+  },
+  {
+    name: "Deepjoy  Sarkar",
+    text: "Hello I am watching the video",
     replies: [],
   },
   {
@@ -12,8 +23,8 @@ const commentsData = [
     text: "Hello I am watching the video",
     replies: [
       {
-        name: "Deepjoy  Sarkar",
-        text: "Hello I am watching the video",
+        name: "Youtube User",
+        text: "Thanks for watching the video",
         replies: [],
       },
       {
@@ -21,16 +32,16 @@ const commentsData = [
         text: "Hello I am watching the video",
         replies: [
           {
-            name: "Deepjoy  Sarkar",
-            text: "Hello I am watching the video",
+            name: "Youtube User",
+            text: "Thanks for watching the video",
             replies: [
               {
                 name: "Deepjoy  Sarkar",
                 text: "Hello I am watching the video",
                 replies: [
                   {
-                    name: "Deepjoy  Sarkar",
-                    text: "Hello I am watching the video",
+                    name: "Youtube User",
+                    text: "Thanks for watching the video",
                     replies: [
                       {
                         name: "Deepjoy  Sarkar",
@@ -50,12 +61,13 @@ const commentsData = [
   {
     name: "Deepjoy  Sarkar",
     text: "Hello I am watching the video",
-    replies: [],
-  },
-  {
-    name: "Deepjoy  Sarkar",
-    text: "Hello I am watching the video",
-    replies: [],
+    replies: [
+      {
+        name: "Youtube User",
+        text: "Thanks for watching the video",
+        replies: [],
+      },
+    ],
   },
   {
     name: "Deepjoy  Sarkar",
@@ -75,7 +87,7 @@ const Comment = ({ data }) => {
     <div className="flex shadow-sm bg-gray-100 p-2 rounded-lg my-2">
       <img className="w-12 h-12" alt="user" src={USER_ICON} />
       <div className="px-3">
-        <p className="font-bold">{name}</p>
+        <p className="font-semibold">@{name}</p>
         <p>{text}</p>
       </div>
     </div>
@@ -86,7 +98,7 @@ const CommentsList = ({ comments }) => {
   return comments.map((comment, index) => (
     <div key={index}>
       <Comment data={comment} />
-      <div className="pl-5 border border-l-black ml-5">
+      <div className="ml-9 border-l-2 border-gray-500 pl-3">
         <CommentsList comments={comment.replies} />
       </div>
     </div>
